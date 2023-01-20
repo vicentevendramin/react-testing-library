@@ -44,8 +44,36 @@ describe('Testa o componente Pokedex', () => {
     expect(verifyPokemon).toBeInTheDocument();
   });
 
+  it('Verifica os nomes dos botões de filtragem', () => {
+    renderWithRouter(<App />);
+
+    const electric = screen.getByRole('button', { name: 'Electric' });
+    expect(electric).toBeInTheDocument();
+
+    const fire = screen.getByRole('button', { name: 'Fire' });
+    expect(fire).toBeInTheDocument();
+
+    const bug = screen.getByRole('button', { name: 'Bug' });
+    expect(bug).toBeInTheDocument();
+
+    const poison = screen.getByRole('button', { name: 'Poison' });
+    expect(poison).toBeInTheDocument();
+
+    const psychic = screen.getByRole('button', { name: 'Psychic' });
+    expect(psychic).toBeInTheDocument();
+
+    const normal = screen.getByRole('button', { name: 'Normal' });
+    expect(normal).toBeInTheDocument();
+
+    const dragon = screen.getByRole('button', { name: 'Dragon' });
+    expect(dragon).toBeInTheDocument();
+  });
+
   it('Testa se os botões de filtragem funcionam', () => {
     renderWithRouter(<App />);
+
+    const electricBtn = screen.getByRole('button', { name: 'Electric' });
+    expect(electricBtn).toBeInTheDocument();
 
     const buttons = screen.getAllByTestId('pokemon-type-button');
     expect(buttons.length).toBe(7);
